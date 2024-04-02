@@ -58,7 +58,8 @@
                             <h2>"THE CAR" LP</h2>
                             <h3>€24.00</h3>
                             <div class="wrapper__cards__card--options">
-                                <i class="fa-solid da cart fa-cart-shopping"></i>
+                                <!-- Add onclick event to cart icon -->
+                                <i class="fa-solid fa-cart-shopping" onclick="addToCart('THE CAR LP', 24.00)"></i>
                                 <i class="fa-solid fa-eye"></i>
                                 <i class="fa-solid fa-heart"></i>
                             </div>
@@ -70,7 +71,7 @@
                             <h2>"THE CAR" CD</h2>
                             <h3>€12.00</h3>
                             <div class="wrapper__cards__card--options">
-                                <i class="fa-solid cart fa-cart-shopping"></i>
+                                <i class="fa-solid cart fa-cart-shopping" onclick="addToCart('THE CAR CD', 12.00)"></i>
                                 <i class="fa-solid fa-eye"></i>
                                 <i class="fa-solid fa-heart"></i>
                             </div>
@@ -82,7 +83,7 @@
                             <h2>"THE CAR" CASETTE</h2>
                             <h3>€10.00</h3>
                             <div class="wrapper__cards__card--options">
-                                <i class="fa-solid cart fa-cart-shopping"></i>
+                                <i class="fa-solid cart fa-cart-shopping" onclick="addToCart('THE CAR CASETTE', 10.00)"></i>
                                 <i class="fa-solid fa-eye"></i>
                                 <i class="fa-solid fa-heart"></i>
                             </div>
@@ -94,7 +95,7 @@
                             <h2>"THE CAR" BLACK T-SHIRT</h2>
                             <h3>€30.00</h3>
                             <div class="wrapper__cards__card--options">
-                                <i class="fa-solid cart fa-cart-shopping"></i>
+                                <i class="fa-solid cart fa-cart-shopping" onclick="addToCart('THE CAR BLACK T-SHIRT', 30.00)"></i>
                                 <i class="fa-solid fa-eye"></i>
                                 <i class="fa-solid fa-heart"></i>
                             </div>
@@ -106,7 +107,7 @@
                             <h2>"THE CAR" WHITE T-SHIRT</h2>
                             <h3>€30.00</h3>
                             <div class="wrapper__cards__card--options">
-                                <i class="fa-solid cart fa-cart-shopping"></i>
+                                <i class="fa-solid cart fa-cart-shopping" onclick="addToCart('THE CAR WHITE T-SHIRT', 30.00)"></i>
                                 <i class="fa-solid fa-eye"></i>
                                 <i class="fa-solid fa-heart"></i>
                             </div>
@@ -118,7 +119,7 @@
                             <h2>"THE CAR" CAP</h2>
                             <h3>€25.00</h3>
                             <div class="wrapper__cards__card--options">
-                                <i class="fa-solid cart fa-cart-shopping"></i>
+                                <i class="fa-solid cart fa-cart-shopping" onclick="addToCart('THE CAR CAP', 30.00)"></i>
                                 <i class="fa-solid fa-eye"></i>
                                 <i class="fa-solid fa-heart"></i>
                             </div>
@@ -130,7 +131,7 @@
                             <h2>"THE CAR" KEYRING</h2>
                             <h3>€8.00</h3>
                             <div class="wrapper__cards__card--options">
-                                <i class="fa-solid cart fa-cart-shopping"></i>
+                                <i class="fa-solid cart fa-cart-shopping" onclick="addToCart('THE CAR KEYRING', 8.00)"></i>
                                 <i class="fa-solid fa-eye"></i>
                                 <i class="fa-solid fa-heart"></i>
                             </div>
@@ -142,7 +143,7 @@
                             <h2>LOGO PISTACHIO T-SHIRT</h2>
                             <h3>€30.00</h3>
                             <div class="wrapper__cards__card--options">
-                                <i class="fa-solid cart fa-cart-shopping"></i>
+                                <i class="fa-solid cart fa-cart-shopping" onclick="addToCart('LOGO PISTACHIO T-SHIRT', 30.00)"></i>
                                 <i class="fa-solid fa-eye"></i>
                                 <i class="fa-solid fa-heart"></i>
                             </div>
@@ -154,7 +155,7 @@
                             <h2>ALBUM PHOTO T-SHIRT</h2>
                             <h3>€30.00</h3>
                             <div class="wrapper__cards__card--options">
-                                <i class="fa-solid cart fa-cart-shopping"></i>
+                                <i class="fa-solid cart fa-cart-shopping" onclick="addToCart('ALBUM PHOTO T-SHIRT', 30.00)"></i>
                                 <i class="fa-solid fa-eye"></i>
                                 <i class="fa-solid fa-heart"></i>
                             </div>
@@ -186,6 +187,12 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+        
+        // Function to add product to cart and redirect to order page
+        function addToCart(productName, productPrice) {
+            // Redirect to order page with product details in URL query parameters
+            window.location.href = `order.html?productName=${encodeURIComponent(productName)}&productPrice=${encodeURIComponent(productPrice)}`;
+        }
     </script>
     <script src="/js/store/store.js" type="module"></script>
 </body>

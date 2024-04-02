@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order</title>
+    <link rel="stylesheet" href="assets/style/components/store/order.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Place Your Order</h2>
+        <!-- Display product details -->
+        <div id="product-details">
+            <p id="product-name">Product Name: </p>
+            <p id="product-price">Product Price: </p>
+        </div>
+        <form id="order-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="surname">LastName:</label>
+                <input type="text" id="surname" name="surname" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile:</label>
+                <input type="number" id="mobile" name="mobile" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="payment">Mode of Payment:</label>
+                <select id="payment" name="payment" required>
+                    <option value="">Select Payment Method</option>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="debit_card">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+            </div>
+            <button type="submit" id="place-order-btn">Place Order</button>
+        </form>
+    </div>
+
+    <!-- Popup Modal -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <p>Your order has been placed successfully!</p>
+        </div>
+    </div>
+
+    <script>
+         // Function to show the popup
+        function showPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        // Function to retrieve URL query parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        // Event listener for form submission
+        document.getElementById('order-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+            showPopup(); // Show the popup
+        });
+
+        // Retrieve and display product details
+        window.onload = function () {
+            closePopup();
+            var productName = getUrlParameter('productName');
+            var productPrice = getUrlParameter('productPrice');
+            if (productName && productPrice) {
+            document.getElementById('product-name').textContent += productName;
+            document.getElementById('product-price').textContent += productPrice + ' $';
+            } else {
+                // If product details are not provided, hide the product details section
+                document.getElementById('product-details').style.display = 'none';
+            }
+        };
+    </script>
+   
+
+</body>
+
+</html>
